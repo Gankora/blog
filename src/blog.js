@@ -1,7 +1,7 @@
 //json-server --watch src/db.json --port 3005
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer } from './components';
-import { Authorization } from './pages';
+import { Authorization, Registrarion } from './pages';
 import styled from 'styled-components';
 
 const AppColumn = styled.div`
@@ -29,7 +29,7 @@ export const Blog = () => {
 						element={<div style={{ height: '2000px' }}>Главная страница</div>}
 					/>
 					<Route path="/login" element={<Authorization />} />
-					<Route path="/register" element={<div>Регистрация</div>} />
+					<Route path="/register" element={<Registrarion />} />
 					<Route path="/users" element={<div>Пользователи</div>} />
 					<Route path="/post" element={<div>Новая статья</div>} />
 					<Route path="/post/:postId" element={<div>Статья</div>} />
