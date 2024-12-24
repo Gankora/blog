@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { Link, Navigate } from 'react-router-dom';
-import { useDispatch, useStore } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions/set-user';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';

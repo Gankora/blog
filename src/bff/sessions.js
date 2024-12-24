@@ -4,6 +4,7 @@ const createSessionManager = () => {
 	const create = (user) => {
 		const hash = Math.random().toFixed(50);
 		list[hash] = user; // присвоение ключа (hash) объекту user;
+
 		return hash;
 	};
 
@@ -11,9 +12,15 @@ const createSessionManager = () => {
 		delete list[hash];
 	};
 
+	const access = (hash, accesRoles) => {
+		const user = list[hash];
+		return !!user && accesRoles.includes(user.roleId);
+	};
+
 	return {
 		create,
 		remove,
+		access,
 	};
 };
 
