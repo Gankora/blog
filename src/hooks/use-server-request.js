@@ -3,12 +3,14 @@ import { useCallback } from 'react';
 import { selectUserSession } from '../selectors';
 import { server } from '../bff';
 
+// 'fetchComment'
+
 export const useServerRequest = () => {
-	const session = useSelector(selectUserSession);
+	const session = useSelector(selectUserSession); // берём hash из state
 
 	return useCallback(
 		(operation, ...params) => {
-			const request = ['register', 'authorize'].includes(operation) // есть ли в массиве переданная операция через requestServer();
+			const request = ['register', 'authorize', 'fetchPost'].includes(operation) // есть ли в массиве переданная операция через requestServer();
 				? params // []
 				: [session, ...params]; // hash
 
@@ -17,3 +19,8 @@ export const useServerRequest = () => {
 		[session],
 	);
 };
+
+/*
+'Данный хук предназначен для предоставления доступа определённых страниц или операций.
+Находящиееся операции в массиве request является исключением, нетребующих передачу хэша объекта user '
+*/

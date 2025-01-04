@@ -15,18 +15,11 @@
       "role_id": 2
     },
     {
-      "id": "c9ca",
-      "login": "Kostya",
-      "password": "777eee",
-      "registered_at": "2057-07-08 18:08",
-      "role_id": 1
-    },
-    {
-      "id": "6df2",
+      "id": "2c58",
       "login": "Sveta",
       "password": "123asd",
-      "registered_at": "2053-02-26 12:12",
-      "role_id": 2
+      "registered_at": "2036-02-24 14:16",
+      "role_id": 1
     }
   ],
   "roles": [
@@ -105,5 +98,62 @@
       "publishedAt": "2047-04-05"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": "8e14",
+      "author_id": "001",
+      "post_id": "006",
+      "published_at": "2038-04-12 22:28",
+      "content": "Я классный!"
+    },
+    {
+      "id": "c399",
+      "author_id": "001",
+      "post_id": "006",
+      "published_at": "2061-12-09 03:12",
+      "content": "Время пришло..."
+    },
+    {
+      "id": "bcf5",
+      "author_id": "001",
+      "post_id": "006",
+      "published_at": "2060-03-25 21:15",
+      "content": "lol"
+    }
+  ],
+  "sessions": [
+    {
+      "id": "ff35",
+      "hash": "0.87804258252453393218672772491117939352989196777344",
+      "user": {
+        "id": "001",
+        "login": "Anton",
+        "password": "qwe123",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "fbd4",
+      "hash": "0.39271377299854615117169487348292022943496704101563",
+      "user": {
+        "id": "001",
+        "login": "Anton",
+        "password": "qwe123",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      }
+    },
+    {
+      "id": "db6f",
+      "hash": "0.02842244753765754694541101343929767608642578125000",
+      "user": {
+        "id": "001",
+        "login": "Anton",
+        "password": "qwe123",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      }
+    }
+  ]
 }

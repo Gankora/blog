@@ -4,4 +4,4 @@ import { transformUser } from '../transformers';
 export const getUsers = () =>
 	fetch('http://localhost:3005/users')
 		.then((loadedUsers) => loadedUsers.json())
-		.then((loadedUser) => loadedUser && loadedUser.map(transformUser));
+		.then((loadedUsers) => loadedUsers && loadedUsers.map(transformUser));
