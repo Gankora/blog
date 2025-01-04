@@ -3,8 +3,6 @@ import { useCallback } from 'react';
 import { selectUserSession } from '../selectors';
 import { server } from '../bff';
 
-// 'fetchComment'
-
 export const useServerRequest = () => {
 	const session = useSelector(selectUserSession); // берём hash из state
 
@@ -14,7 +12,7 @@ export const useServerRequest = () => {
 				? params // []
 				: [session, ...params]; // hash
 
-			return server[operation](...request); // Promise {error: null, res: Array} или Promise {error: ошибка, res: null}
+			return server[operation](...request); // Promise {error: null, res: Array} или Promise {error: ошибка, res: null} (request - это hash & ...params)
 		},
 		[session],
 	);

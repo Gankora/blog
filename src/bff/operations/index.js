@@ -1,4 +1,3 @@
-export * from './remove-comment';
 export * from './authorize';
 export * from './register';
 export * from './logout';
@@ -8,3 +7,4 @@ export * from './update-user-role';
 export * from './remove-user';
 export * from './fetch-post';
 export * from './fetch-comment';
+export * from './remove-fetch-comment';

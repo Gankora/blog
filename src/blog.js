@@ -1,11 +1,11 @@
 //json-server --watch src/db.json --port 3005
 import { Route, Routes } from 'react-router-dom';
-import { Header, Footer } from './components';
+import { Header, Footer, Modal } from './components';
 import { Authorization, Registrarion, Users, Post } from './pages';
 import { setUser } from './actions';
-import styled from 'styled-components';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 const AppColumn = styled.div`
 	margin: 0 auto;
@@ -59,6 +59,7 @@ export const Blog = () => {
 				</Routes>
 			</Page>
 			<Footer />
+			<Modal />
 		</AppColumn>
 	);
 };
