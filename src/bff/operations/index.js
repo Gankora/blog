@@ -8,3 +8,4 @@ export * from './remove-user';
 export * from './fetch-post';
 export * from './fetch-comment';
 export * from './remove-fetch-comment';
+export * from './save-post';
