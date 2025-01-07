@@ -1,7 +1,7 @@
 export const transformPost = (dbPost) => ({
 	id: dbPost.id,
 	title: dbPost.title,
-	imageUrl: dbPost.imageUrl,
+	imageUrl: dbPost.image_url,
 	content: dbPost.content,
-	publishedAt: dbPost.publishedAt,
+	publishedAt: dbPost.published_at,
 });

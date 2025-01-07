@@ -1,5 +1,5 @@
 import { sessions } from '../sessions';
-import { updatePost } from '../api';
+import { addPost, updatePost } from '../api';
 import { ROLE } from '../constants';
 
 export const savePost = async (hash, newPostData) => {
@@ -14,10 +14,14 @@ export const savePost = async (hash, newPostData) => {
 		};
 	}
 
-	const updatedPost = await updatePost(newPostData);
+	// если id имеет пустую строку(в initialPostState), то запускается страница для создания статьи (пустая).
+	const savedPost =
+		newPostData.id === ''
+			? await addPost(newPostData)
+			: await updatePost(newPostData);
 
 	return {
 		error: null,
-		res: updatedPost,
+		res: savedPost,
 	};
 };

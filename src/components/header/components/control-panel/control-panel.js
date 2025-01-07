@@ -35,6 +35,12 @@ const ControlPanelContainer = ({ className }) => {
 		sessionStorage.removeItem('userData');
 	};
 
+	/*
+	const onArticle = () => {
+		dispatch(RESET_POST_DATA);
+	};
+	*/
+
 	return (
 		<div className={className}>
 			<RightAligned>

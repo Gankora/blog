@@ -13,6 +13,7 @@ export const useServerRequest = () => {
 				: [session, ...params]; // hash
 
 			return server[operation](...request); // Promise {error: null, res: Array} или Promise {error: ошибка, res: null} (request - это hash & ...params)
+			//(return server.savePost(hash, newPostData) --пример)
 		},
 		[session],
 	);
