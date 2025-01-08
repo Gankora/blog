@@ -8,7 +8,9 @@ export const useServerRequest = () => {
 
 	return useCallback(
 		(operation, ...params) => {
-			const request = ['register', 'authorize', 'fetchPost'].includes(operation) // есть ли в массиве переданная операция через requestServer();
+			const request = ['register', 'authorize', 'fetchPost', 'fetchPosts'].includes(
+				operation,
+			) // есть ли в массиве переданная операция через requestServer();
 				? params // []
 				: [session, ...params]; // hash
 

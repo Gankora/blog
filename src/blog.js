@@ -1,7 +1,7 @@
 //json-server --watch src/db.json --port 3005
 import { Route, Routes } from 'react-router-dom';
 import { Header, Footer, Modal } from './components';
-import { Authorization, Registrarion, Users, Post } from './pages';
+import { Authorization, Registrarion, Users, Post, Main } from './pages';
 import { setUser } from './actions';
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -48,7 +48,11 @@ export const Blog = () => {
 				<Routes>
 					<Route
 						path="/"
-						element={<div style={{ height: '2000px' }}>Главная страница</div>}
+						element={
+							<div>
+								<Main />
+							</div>
+						}
 					/>
 					<Route path="/login" element={<Authorization />} />
 					<Route path="/register" element={<Registrarion />} />
