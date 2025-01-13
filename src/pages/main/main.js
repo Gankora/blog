@@ -8,6 +8,7 @@ import styled from 'styled-components';
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
 	const [page, setPage] = useState(1);
+	const [isLoading, setIsLoading] = useState(true);
 	const [lastPage, setLastPage] = useState(1);
 	const [shouldSearch, setShouldSearch] = useState(false);
 	const [searchPhrase, setSearchPhrase] = useState('');
@@ -18,6 +19,7 @@ const MainContainer = ({ className }) => {
 			({ res: { posts, links } }) => {
 				setPosts(posts);
 				setLastPage(getLastPageFromLinks(links));
+				setIsLoading(false);
 			},
 		);
 	}, [requestServer, page, shouldSearch, searchPhrase]);
@@ -28,6 +30,10 @@ const MainContainer = ({ className }) => {
 		setSearchPhrase(target.value);
 		startDelayedSearch(!shouldSearch);
 	};
+
+	if (isLoading) {
+		return null;
+	}
 
 	return (
 		<div className={className}>

@@ -1,4 +1,4 @@
-import { getSession, addSession, deleteSession, getUsers } from './api';
+import { getSession, addSession, deleteSession } from './api';
 
 const createSessionManager = () => {
 	const create = (user) => {
@@ -21,15 +21,8 @@ const createSessionManager = () => {
 
 	const access = async (hash, accesRoles) => {
 		const dbSession = await getSession(hash);
-		const dbUser = await getUsers();
 
-		if (dbSession && dbSession.user) {
-			return !!dbSession.user && accesRoles.includes(dbSession.user.roleId);
-		}
-
-		if (dbUser) {
-			return !!dbUser && accesRoles.includes(dbUser.roleId);
-		}
+		return !!dbSession?.user && accesRoles.includes(dbSession.user.roleId);
 	};
 
 	return {

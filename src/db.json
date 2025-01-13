@@ -19,7 +19,7 @@
       "login": "Sveta",
       "password": "123asd",
       "registered_at": "2036-02-24 14:16",
-      "role_id": 1
+      "role_id": 2
     }
   ],
   "roles": [
@@ -131,13 +131,6 @@
   ],
   "comments": [
     {
-      "id": "e114",
-      "author_id": "001",
-      "post_id": "14ea",
-      "published_at": "2052-06-29 22:11",
-      "content": "Топ!"
-    },
-    {
       "id": "28b0",
       "author_id": "001",
       "post_id": "001",
@@ -150,6 +143,20 @@
       "post_id": "14ea",
       "publishedAt": "2043-10-11 11:40",
       "content": "I'm agree with you :)"
+    },
+    {
+      "author_id": "001",
+      "post_id": "002",
+      "publishedAt": "2040-04-26 05:06",
+      "content": "Интересно!",
+      "id": "6YYUO0-"
+    },
+    {
+      "author_id": "001",
+      "post_id": "14ea",
+      "publishedAt": "2056-11-14 01:10",
+      "content": "Топ!",
+      "id": "CDm2lQO"
     }
   ],
   "sessions": [
@@ -350,6 +357,28 @@
         "roleId": 0
       },
       "id": "9UDIJB6"
+    },
+    {
+      "hash": "0.10945034338918646632521358696976676583290100097656",
+      "user": {
+        "id": "001",
+        "login": "Anton",
+        "password": "qwe123",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      },
+      "id": "z_h8PRZ"
+    },
+    {
+      "hash": "0.89592507592031944696486789325717836618423461914063",
+      "user": {
+        "id": "2c58",
+        "login": "Sveta",
+        "password": "123asd",
+        "registeredAt": "2036-02-24 14:16",
+        "roleId": 2
+      },
+      "id": "L1bcXhZ"
     }
   ]
 }

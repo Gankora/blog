@@ -16,14 +16,12 @@ export const TableRow = styled(TableRowContainer)`
 	}
 
 	& .login-column {
-		width: 172px;
+		min-width: 172px;
 	}
 	& .registered-at-column {
-		width: 250px;
+		min-width: 250px;
 	}
 	& .role-column {
 		width: auto;
 	}
 `;
-
-// border: ${({ border }) => (border ? '1px solid #000;' : null)}
