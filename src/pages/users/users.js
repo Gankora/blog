@@ -12,8 +12,6 @@ const StyledColumn = styled.div`
 	margin-left: 3px;
 `;
 
-//
-
 const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
@@ -83,8 +81,3 @@ export const Users = styled(UsersContainer)`
 	margin: 0 auto;
 	font-size: 18px;
 `;
-
-/*
-
-
-*/

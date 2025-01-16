@@ -2,6 +2,7 @@ import { SpecialPanel } from '../special-panel/special-panel';
 import { H2, Icon } from '../../../../components';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { PROP_TYPE } from '../../../../constants';
 
 const PostContentContainer = ({
 	className,
@@ -17,7 +18,7 @@ const PostContentContainer = ({
 				id={id}
 				publishedAt={publishedAt}
 				margin="-20px 0 20px"
-				editButton={
+				editButton={() => (
 					<div className="iconPencil">
 						<Icon
 							id="fa-pencil-square-o"
@@ -28,7 +29,7 @@ const PostContentContainer = ({
 							}}
 						/>
 					</div>
-				}
+				)}
 			/>
 			<div className="post-text">{content}</div>
 		</div>
@@ -52,3 +53,7 @@ export const PostContent = styled(PostContentContainer)`
 		margin-top: 1.4px;
 	}
 `;
+
+PostContent.propTypes = {
+	post: PROP_TYPE.POST,
+};

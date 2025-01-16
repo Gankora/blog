@@ -7,6 +7,7 @@ import { sanitizeContent } from './utils/sanitize-content';
 import styled from 'styled-components';
 import { savePostAsync } from '../../../../actions';
 import { useServerRequest } from '../../../../hooks';
+import { PROP_TYPE } from '../../../../constants';
 
 // редактор статьи
 const PostFormContainer = ({
@@ -59,7 +60,7 @@ const PostFormContainer = ({
 				id={id}
 				publishedAt={publishedAt}
 				margin="20px 0"
-				editButton={
+				editButton={() => (
 					<div className="iconFloppy">
 						<Icon
 							id="fa-floppy-o"
@@ -68,7 +69,7 @@ const PostFormContainer = ({
 							onClick={onSave}
 						/>
 					</div>
-				}
+				)}
 			/>
 			<div
 				contentEditable={true}
@@ -90,3 +91,7 @@ export const PostForm = styled(PostFormContainer)`
 		border: 1px solid;
 	}
 `;
+
+PostForm.propTypes = {
+	post: PROP_TYPE.POST,
+};

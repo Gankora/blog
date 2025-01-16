@@ -20,6 +20,13 @@
       "password": "123asd",
       "registered_at": "2036-02-24 14:16",
       "role_id": 2
+    },
+    {
+      "login": "Oleg",
+      "password": "qwe1234",
+      "registered_at": "2047-10-07 21:08",
+      "role_id": 2,
+      "id": "HlWE-iT"
     }
   ],
   "roles": [
@@ -178,6 +185,20 @@
       "publishedAt": "2055-06-27 11:32",
       "content": "Понятно!",
       "id": "cXNX3t3"
+    },
+    {
+      "author_id": "HlWE-iT",
+      "post_id": "003",
+      "publishedAt": "2061-10-24 19:16",
+      "content": "Весьма противоречиво...",
+      "id": "hhSpKBw"
+    },
+    {
+      "author_id": "001",
+      "post_id": "006",
+      "publishedAt": "2058-02-03 17:22",
+      "content": "Привет, Андрюха!",
+      "id": "3gexSko"
     }
   ],
   "sessions": [
@@ -202,17 +223,6 @@
         "roleId": 0
       },
       "id": 2
-    },
-    {
-      "hash": "0.20768317864965712971070388448424637317657470703125",
-      "user": {
-        "id": "a4c8",
-        "login": "Andrew",
-        "password": "abcdf123",
-        "registeredAt": "2046-08-27 18:11",
-        "roleId": 1
-      },
-      "id": 3
     }
   ]
 }

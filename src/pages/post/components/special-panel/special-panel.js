@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Icon } from '../../../../components';
 import { removePostAsync, closeModal, openModal } from '../../../../actions';
 import { useDispatch } from 'react-redux';
@@ -48,7 +49,7 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 						{publishedAt}
 					</div>
 					<div className="buttons-panel">
-						{editButton}
+						{editButton && editButton()}
 						{publishedAt && (
 							<Icon
 								id="fa-trash-o"
@@ -89,3 +90,9 @@ export const SpecialPanel = styled(SpecialPanelContainer)`
 		top: 1px;
 	}
 `;
+
+SpecialPanel.propTypes = {
+	id: PropTypes.string.isRequired,
+	publishedAt: PropTypes.string.isRequired,
+	editButton: PropTypes.func.isRequired,
+};
