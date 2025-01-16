@@ -2,13 +2,18 @@ import { Icon } from '../../../../components';
 import { removePostAsync, closeModal, openModal } from '../../../../actions';
 import { useDispatch } from 'react-redux';
 import { useServerRequest } from '../../../../hooks';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { checkAccess } from '../../../../utils';
+import { useSelector } from 'react-redux';
+import { selectUserRole } from '../../../../selectors';
+import { ROLE } from '../../../../constants';
+import styled from 'styled-components';
 
 const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 	const dispatch = useDispatch();
 	const requestServer = useServerRequest();
 	const navigate = useNavigate();
+	const roleId = useSelector(selectUserRole);
 
 	const onPostRemove = (requestServer, id) => {
 		dispatch(
@@ -25,32 +30,38 @@ const SpecialPanelContainer = ({ className, id, publishedAt, editButton }) => {
 		);
 	};
 
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
+
 	return (
 		<div className={className}>
-			<div className="published-at">
-				{publishedAt && (
-					<Icon
-						inactive={true}
-						id="fa-calendar-o"
-						margin="0 10px 0 0"
-						size="20px"
-					/>
-				)}
-				{publishedAt}
-			</div>
-			<div className="buttons-panel">
-				{editButton}
-				{publishedAt && (
-					<Icon
-						id="fa-trash-o"
-						margin="0 0 0 8px"
-						size="21px"
-						onClick={() => {
-							onPostRemove(requestServer, id);
-						}}
-					/>
-				)}
-			</div>
+			{isAdmin && (
+				<>
+					<div className="published-at">
+						{publishedAt && (
+							<Icon
+								inactive={true}
+								id="fa-calendar-o"
+								margin="0 10px 0 0"
+								size="20px"
+							/>
+						)}
+						{publishedAt}
+					</div>
+					<div className="buttons-panel">
+						{editButton}
+						{publishedAt && (
+							<Icon
+								id="fa-trash-o"
+								margin="0 0 0 8px"
+								size="21px"
+								onClick={() => {
+									onPostRemove(requestServer, id);
+								}}
+							/>
+						)}
+					</div>
+				</>
+			)}
 		</div>
 	);
 };

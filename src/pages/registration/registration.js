@@ -55,8 +55,8 @@ const RegistrationContainer = ({ className }) => {
 
 	useResetForm(reset);
 
-	const onSubmit = ({ login, password }) => {
-		server.register(login, password).then(({ error, res }) => {
+	const onSubmit = async ({ login, password }) => {
+		await dispatch(server.register(login, password)).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
 				return; // если ошибка есть прерываем работу кода

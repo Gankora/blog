@@ -9,6 +9,7 @@ import {
 	selectUserSession,
 } from '../../../../selectors';
 import { logout } from '../../../../actions';
+import { checkAccess } from '../../../../utils';
 import styled from 'styled-components';
 
 const RightAligned = styled.div`
@@ -35,11 +36,7 @@ const ControlPanelContainer = ({ className }) => {
 		sessionStorage.removeItem('userData');
 	};
 
-	/*
-	const onArticle = () => {
-		dispatch(RESET_POST_DATA);
-	};
-	*/
+	const isAdmin = checkAccess([ROLE.ADMIN], roleId);
 
 	return (
 		<div className={className}>
@@ -62,12 +59,16 @@ const ControlPanelContainer = ({ className }) => {
 					onClick={() => navigate(-1)}
 				/>
 
-				<Link to="post">
-					<Icon id="fa-file-text-o" margin="10px 5px 0 15px" />
-				</Link>
-				<Link to="users">
-					<Icon id="fa-users" margin="10px 0 0 15px" />
-				</Link>
+				{isAdmin && (
+					<>
+						<Link to="post">
+							<Icon id="fa-file-text-o" margin="10px 5px 0 15px" />
+						</Link>
+						<Link to="users">
+							<Icon id="fa-users" margin="10px 0 0 15px" />
+						</Link>
+					</>
+				)}
 			</RightAligned>
 		</div>
 	);

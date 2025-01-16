@@ -4,5 +4,14 @@ export const transformUser = (dbUser) => ({
 	password: dbUser.password,
 	registeredAt: dbUser.registered_at,
 	roleId: dbUser.role_id,
-	user: dbUser.user,
 });
+
+/*
+id: dbUser.id,
+	login: dbUser.login,
+	password: dbUser.password,
+	registeredAt: dbUser.registered_at,
+	roleId: dbUser.role_id,
+	user: dbUser.user,
+
+*/

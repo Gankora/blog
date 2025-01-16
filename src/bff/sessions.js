@@ -1,4 +1,4 @@
-import { getSession, addSession, deleteSession } from './api';
+import { getSession, addSession, deleteSession, getUsers } from './api';
 
 const createSessionManager = () => {
 	const create = (user) => {
@@ -21,8 +21,21 @@ const createSessionManager = () => {
 
 	const access = async (hash, accesRoles) => {
 		const dbSession = await getSession(hash);
+		const dbUsers = await getUsers();
 
-		return !!dbSession?.user && accesRoles.includes(dbSession.user.roleId);
+		if (dbSession && dbSession.user) {
+			if (dbSession && dbSession.user) {
+				return accesRoles.includes(
+					dbSession.user.role_id || dbSession.user.roleId,
+				);
+			}
+		}
+
+		if (dbUsers) {
+			return dbUsers.some((user) => accesRoles.includes(user.roleId));
+		}
+
+		return false;
 	};
 
 	return {
@@ -35,17 +48,7 @@ const createSessionManager = () => {
 export const sessions = createSessionManager();
 
 /*
-Пример результата функции create()
-
-	{
-    "0.12345678901234567890123456789012345678901234567890": {
-        id: "001",
-        login: "Anton",
-        password: "qwe123",
-        registered_at: "2050-09-22",
-        role_id: 0
-    }
-}
-
-
+Косяк
+		('roleId', dbSession.user.roleId); //отображается при авторизации
+		('role_id', dbSession.user.role_id); // отображается при регистрации
 */
