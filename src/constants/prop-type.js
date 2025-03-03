@@ -1,14 +1,6 @@
 import PropTypes from 'prop-types';
-import { ROLE } from '../bff/constants';
-
-const ROLE_ID = PropTypes.oneOf([...Object.values(ROLE), null]);
 
 export const PROP_TYPE = {
-	ROLE_ID,
-	ROLE: PropTypes.shape({
-		id: ROLE_ID.isRequired,
-		name: PropTypes.string.isRequired,
-	}),
 	ERROR: PropTypes.oneOfType([PropTypes.string, PropTypes.oneOf([null])]),
 	COMMENT: PropTypes.shape({
 		id: PropTypes.string.isRequired,

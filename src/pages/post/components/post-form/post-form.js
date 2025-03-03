@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { Icon, Input } from '../../../../components';
 import { SpecialPanel } from '../special-panel/special-panel';
 import { sanitizeContent } from './utils/sanitize-content';
-import styled from 'styled-components';
 import { savePostAsync } from '../../../../actions';
-import { useServerRequest } from '../../../../hooks';
 import { PROP_TYPE } from '../../../../constants';
+import { formatShortDate } from '../../../main/utils';
+import styled from 'styled-components';
 
 // редактор статьи
 const PostFormContainer = ({
@@ -26,14 +26,11 @@ const PostFormContainer = ({
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	const requestServer = useServerRequest();
-
 	const onSave = () => {
 		const newContent = sanitizeContent(contentRef.current.innerHTML);
 
 		dispatch(
-			savePostAsync(requestServer, {
-				id,
+			savePostAsync(id, {
 				imageUrl: imageUrlValue,
 				title: titleValue,
 				content: newContent,
@@ -58,7 +55,7 @@ const PostFormContainer = ({
 			/>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={formatShortDate(publishedAt)}
 				margin="20px 0"
 				editButton={() => (
 					<div className="iconFloppy">

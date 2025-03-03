@@ -2,23 +2,22 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '../../../../../../components';
 import { removeCommentAsync, openModal, closeModal } from '../../../../../../actions';
-import { useServerRequest } from '../../../../../../hooks';
-import styled from 'styled-components';
 import { checkAccess } from '../../../../../../utils';
 import { ROLE } from '../../../../../../constants';
 import { selectUserRole } from '../../../../../../selectors';
+import { formatShortDate } from '../../../../../main/utils';
+import styled from 'styled-components';
 
 const CommentContainer = ({ className, id, author, content, publishedAt, postId }) => {
 	const dispatch = useDispatch();
-	const requestServer = useServerRequest();
 	const roleId = useSelector(selectUserRole);
 
-	const onCommentRemove = (requestServer, id, postId) => {
+	const onCommentRemove = (id, postId) => {
 		dispatch(
 			openModal({
 				text: 'Удалить комментарий?',
 				onConfirm: () => {
-					dispatch(removeCommentAsync(requestServer, id, postId));
+					dispatch(removeCommentAsync(id, postId));
 					dispatch(closeModal());
 				},
 				onCancel: () => dispatch(closeModal()),
@@ -50,7 +49,7 @@ const CommentContainer = ({ className, id, author, content, publishedAt, postId 
 							size="18px"
 							onClick={() => {}}
 						/>
-						{publishedAt}
+						{formatShortDate(publishedAt)}
 					</div>
 				</div>
 				<div className="comment-text">{content}</div>
@@ -61,7 +60,7 @@ const CommentContainer = ({ className, id, author, content, publishedAt, postId 
 						id="fa-trash-o"
 						margin="0 10px 0 10px"
 						size="20px"
-						onClick={() => onCommentRemove(requestServer, id, postId)}
+						onClick={() => onCommentRemove(id, postId)}
 					/>
 				</>
 			)}

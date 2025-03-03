@@ -30,3 +30,5 @@
 -   post: id / title / imageUrl / content / publishedAt / comments: массив comment: id /
     author / content / publishedAt
 -   users: массив user: id / login / registeredAt / role
+
+*ВАЖНО npm install json-server@0.17.4

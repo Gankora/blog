@@ -1,8 +1,9 @@
 import { SpecialPanel } from '../special-panel/special-panel';
 import { H2, Icon } from '../../../../components';
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { PROP_TYPE } from '../../../../constants';
+import { formatShortDate } from '../../../main/utils';
+import styled from 'styled-components';
 
 const PostContentContainer = ({
 	className,
@@ -16,7 +17,7 @@ const PostContentContainer = ({
 			<H2>{title}</H2>
 			<SpecialPanel
 				id={id}
-				publishedAt={publishedAt}
+				publishedAt={formatShortDate(publishedAt)}
 				margin="-20px 0 20px"
 				editButton={() => (
 					<div className="iconPencil">

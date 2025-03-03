@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from './action-type';
 
-export const addCommentData = (newComment) => ({
+export const addComment = (newComment) => ({
 	type: ACTION_TYPE.ADD_COMMENT,
 	payload: newComment,
 });

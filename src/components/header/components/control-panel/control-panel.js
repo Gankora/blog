@@ -6,7 +6,6 @@ import { ROLE } from '../../../../constants';
 import {
 	selectUserRole,
 	selectUserLogin,
-	selectUserSession,
 } from '../../../../selectors';
 import { logout } from '../../../../actions';
 import { checkAccess } from '../../../../utils';
@@ -27,12 +26,11 @@ const ControlPanelContainer = ({ className }) => {
 	const navigate = useNavigate();
 	const roleId = useSelector(selectUserRole);
 	const login = useSelector(selectUserLogin);
-	const session = useSelector(selectUserSession);
 
 	const dispatch = useDispatch();
 
 	const onLogout = () => {
-		dispatch(logout(session));
+		dispatch(logout());
 		sessionStorage.removeItem('userData');
 	};
 

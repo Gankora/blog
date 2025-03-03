@@ -19,7 +19,7 @@
       "login": "Sveta",
       "password": "123asd",
       "registered_at": "2036-02-24 14:16",
-      "role_id": 2
+      "role_id": 1
     },
     {
       "login": "Oleg",
@@ -302,6 +302,17 @@
         "roleId": 2
       },
       "id": 6
+    },
+    {
+      "hash": "0.13465976639961874106177219800883904099464416503906",
+      "user": {
+        "id": "001",
+        "login": "Anton",
+        "password": "qwe123",
+        "registeredAt": "2050-09-22",
+        "roleId": 0
+      },
+      "id": 7
     }
   ]
 }

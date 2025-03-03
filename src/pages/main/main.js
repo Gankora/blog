@@ -1,9 +1,9 @@
 import { useState, useEffect, useMemo } from 'react';
 import { PostCard, Pagination, Search } from './components';
-import { useServerRequest } from '../../hooks';
 import { PAGINATION_LIMIT } from '../../constants';
-import { debounce, getLastPageFromLinks } from './utils';
+import { debounce } from './utils';
 import styled from 'styled-components';
+import { request } from '../../utils/request';
 
 const MainContainer = ({ className }) => {
 	const [posts, setPosts] = useState([]);
@@ -12,17 +12,16 @@ const MainContainer = ({ className }) => {
 	const [lastPage, setLastPage] = useState(1);
 	const [shouldSearch, setShouldSearch] = useState(false);
 	const [searchPhrase, setSearchPhrase] = useState('');
-	const requestServer = useServerRequest();
 
 	useEffect(() => {
-		requestServer('fetchPosts', searchPhrase, page, PAGINATION_LIMIT).then(
-			({ res: { posts, links } }) => {
+		request(`/posts?search=${searchPhrase}&page=${page}&limit=${PAGINATION_LIMIT}`).then(
+			({ data: { posts, lastPage } }) => {
 				setPosts(posts);
-				setLastPage(getLastPageFromLinks(links));
+				setLastPage(lastPage);
 				setIsLoading(false);
 			},
 		);
-	}, [requestServer, page, shouldSearch, searchPhrase]);
+	}, [page, shouldSearch, searchPhrase]);
 
 	const startDelayedSearch = useMemo(() => debounce(setShouldSearch, 2000), []);
 
@@ -42,14 +41,14 @@ const MainContainer = ({ className }) => {
 				{posts.length ? (
 					<div className="post-list">
 						{posts.map(
-							({ id, title, imageUrl, publishedAt, commentsCount }) => (
+							({ id, title, imageUrl, publishedAt, comments }) => (
 								<PostCard
 									key={id}
 									id={id}
 									title={title}
 									imageUrl={imageUrl}
 									publishedAt={publishedAt}
-									commentsCount={commentsCount}
+									commentsCount={comments.length}
 								/>
 							),
 						)}
@@ -72,7 +71,7 @@ export const Main = styled(MainContainer)`
 		padding: 20px 20px 80px;
 	}
 
-	. no-posts-found {
+	.no-posts-found {
 		text-align: center;
 		padding: 40px;
 		font-size: 18px;

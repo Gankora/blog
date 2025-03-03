@@ -44,6 +44,7 @@ export const Blog = () => {
 		);
 	}, [dispatch]);
 
+
 	return (
 		<AppColumn>
 			<Header />

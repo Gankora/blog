@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from '../../../../components';
 import { addCommentAsync } from '../../../../actions';
 import { Comment } from './components';
-import { selectUserId, selectUserRole } from '../../../../selectors';
-import { useServerRequest } from '../../../../hooks';
+import { selectUserRole } from '../../../../selectors';
 import styled from 'styled-components';
 import { PROP_TYPE, ROLE } from '../../../../constants';
 import { checkAccess } from '../../../../utils';
@@ -13,13 +12,11 @@ import { checkAccess } from '../../../../utils';
 const CommentsContainer = ({ className, comments, postId }) => {
 	const [newComment, setNewComment] = useState('');
 	const dispatch = useDispatch();
-	const userId = useSelector(selectUserId);
 	const roleId = useSelector(selectUserRole);
 
-	const requestServer = useServerRequest();
 
-	const onNewCommentAdd = (requestServer, userId, postId, content) => {
-		dispatch(addCommentAsync(requestServer, userId, postId, content));
+	const onNewCommentAdd = (postId, content) => {
+		dispatch(addCommentAsync(postId, content));
 		setNewComment('');
 	};
 
@@ -41,7 +38,7 @@ const CommentsContainer = ({ className, comments, postId }) => {
 						margin="0 0 0 8px"
 						size="20px"
 						onClick={() =>
-							onNewCommentAdd(requestServer, userId, postId, newComment)
+							onNewCommentAdd(postId, newComment)
 						}
 					/>
 				</div>

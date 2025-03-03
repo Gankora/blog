@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../actions/set-user';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { server } from '../../bff';
 import { Input, Button, H2, AuthFormError } from '../../components';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ROLE } from '../../constants';
 import { selectUserRole } from '../../selectors';
 import { useResetForm } from '../../hooks';
+import { request } from '../../utils/request';
 import styled from 'styled-components';
 
 const regFormSchema = yup.object().shape({
@@ -56,14 +56,14 @@ const RegistrationContainer = ({ className }) => {
 	useResetForm(reset);
 
 	const onSubmit = async ({ login, password }) => {
-		await dispatch(server.register(login, password)).then(({ error, res }) => {
+		request('/register', 'POST', { login, password }).then(({ error, user }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
 				return; // если ошибка есть прерываем работу кода
 			}
 
-			dispatch(setUser(res));
-			sessionStorage.setItem('userData', JSON.stringify(res));
+			dispatch(setUser(user));
+			sessionStorage.setItem('userData', JSON.stringify(user));
 		});
 	};
 
