@@ -1,0 +1,222 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Practice",
+    "collectionId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+    "dateExported": "2025-02-23T18:35:54.983Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Users",
+            "containerId": "",
+            "created": "2025-02-23T12:49:12.638Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Posts",
+            "containerId": "",
+            "created": "2025-02-23T17:12:15.812Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "68c6bee8-d0a6-4b71-aec8-bbdc3958fe86",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Register",
+            "url": "http://localhost:3001/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-23T12:49:33.366Z",
+            "modified": "2025-02-23T12:53:43.547Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"login\": \"alex\",\n  \"password\": \"alex123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "f83da360-fb5c-4ab4-9376-08117513a89e",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Login",
+            "url": "http://localhost:3001/login",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-02-23T14:14:14.087Z",
+            "modified": "2025-02-23T17:56:23.513Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"login\": \"alex\",\n  \"password\": \"alex123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "443735d7-cdb9-4aab-8e0e-8c9ee9395a2f",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Logout",
+            "url": "http://localhost:3001/logout",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2025-02-23T14:20:29.334Z",
+            "modified": "2025-02-23T14:20:48.525Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"login\": \"alex\",\n  \"password\": \"alex123\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "646166a2-ff6c-44ba-8fe1-9c7744ec6301",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Get All",
+            "url": "http://localhost:3001/users",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2025-02-23T16:08:52.075Z",
+            "modified": "2025-02-23T16:10:25.028Z",
+            "headers": []
+        },
+        {
+            "_id": "ae962336-602a-41d4-9293-883309b82283",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Edit",
+            "url": "http://localhost:3001/users/67bb1f515a398d98e2185d7f",
+            "method": "PATCH",
+            "sortNum": 60000,
+            "created": "2025-02-23T16:20:15.504Z",
+            "modified": "2025-02-23T17:12:46.879Z",
+            "headers": []
+        },
+        {
+            "_id": "b6e2ab3c-602d-40a8-b8b1-794d96cdc9ca",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "84cb3e9e-9d14-476d-92de-a5b76b2827be",
+            "name": "Delete",
+            "url": "http://localhost:3001/users/67a649f43c7095faa41a46b0",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2025-02-23T16:23:19.731Z",
+            "modified": "2025-02-23T16:24:20.237Z",
+            "headers": []
+        },
+        {
+            "_id": "329623f4-cfb5-42d2-a85d-e2c0a1333026",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Get All",
+            "url": "http://localhost:3001/posts?limit=5",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2025-02-23T17:13:17.094Z",
+            "modified": "2025-02-23T18:10:23.196Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "5",
+                    "isPath": false
+                },
+                {
+                    "name": "search",
+                    "value": "updated",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "88896160-b384-4986-8a7b-cd597bd79ed7",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Get one",
+            "url": "http://localhost:3001/posts/67a512c51b40e52f1b4ff81d",
+            "method": "GET",
+            "sortNum": 100000,
+            "created": "2025-02-23T17:29:13.673Z",
+            "modified": "2025-02-23T17:30:21.520Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "limit",
+                    "value": "2",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "search",
+                    "value": "updated",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "2b145243-c970-49e4-8e9d-94c999cbd498",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Add",
+            "url": "http://localhost:3001/posts",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2025-02-23T17:36:12.273Z",
+            "modified": "2025-02-23T18:05:49.101Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"dogs\",\n  \"content\": \"i love dogs\",\n  \"imageUrl\": \"https://www.thesprucepets.com/thmb/nAfZqzn_BhMmJ2z2rmbGkO439xM=/4000x0/filters:no_upscale():strip_icc()/spruce-pets-200-types-of-dogs-45a7bd12aacf458cb2e77b841c41abe7.jpg\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "33caf7d3-1070-4855-a399-eaed4c2ac77c",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Edit",
+            "url": "http://localhost:3001/posts/67bb6384a51aac1f5d08a132",
+            "method": "PATCH",
+            "sortNum": 120000,
+            "created": "2025-02-23T18:10:44.202Z",
+            "modified": "2025-02-23T18:11:53.450Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"dogs (updated)\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3121f3f8-ad35-4836-aed4-131dfd1ad9ea",
+            "colId": "d72c4643-0a95-44a8-bc0b-3ba2e35eab8f",
+            "containerId": "83e42110-1148-402b-a762-248511ae3f41",
+            "name": "Delete",
+            "url": "http://localhost:3001/posts/67a603ada638027fc7a89d7d",
+            "method": "DELETE",
+            "sortNum": 130000,
+            "created": "2025-02-23T18:12:40.456Z",
+            "modified": "2025-02-23T18:13:25.633Z",
+            "headers": []
+        }
+    ],
+    "ref": "CRIJwx2txgucpWnwoNSqbLHTKiMkoWr8E_hJNmd54ROdqxefBfBtSrSjJLxKAJ5T2_fmSy4sF0ALtpkm9YsIFA"
+}
